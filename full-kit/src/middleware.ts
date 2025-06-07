@@ -33,7 +33,6 @@ function redirect(pathname: string, request: NextRequest) {
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
-  console.log(pathname)
   const locale = getLocaleFromPathname(pathname)
   const pathnameWithoutLocale = ensureWithoutPrefix(pathname, `/${locale}`)
   const isNotPublic = !isPublicRoute(pathnameWithoutLocale)
